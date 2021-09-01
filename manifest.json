@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "WhatsApp找小组工具",
+    "description": "快速列印WhatsApp小组链接，获取小组名字。",
+    "author": "dev-coco",
+    "version": "1.1.1",
+    "browser_action": {
+      "default_icon": "icon.png"
+    },
+    "icons": {
+      "128": "icon.png"
+    },
+    "background" : {
+        "scripts" : ["background.js"],
+        "persistent" : false
+    },
+    "permissions": [
+      "<all_urls>",
+      "tabs",
+      "activeTab"
+    ],
+    "options_ui":
+    {
+        "page": "options.html",
+        "open_in_tab": true
+    }
+}
