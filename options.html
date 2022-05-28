@@ -1,168 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>获取WA小组名</title>
-    <style>
-        body,
-        html {
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        h1 {
-            font-weight: normal;
-            font-size: 4rem;
-            margin: 0 auto;
-            margin-top: 30px;
-            width: 500px;
-            color: #0aa896;
-            text-align: center;
-        }
-        @keyframes myfirst {
-            0% {
-                margin-left: -235px
-            }
-
-            70% {
-                margin-left: 100%;
-            }
-
-            100% {
-                margin-left: 100%;
-            }
-        }
-        .fish {
-            background-image: url('https://dev-coco.github.io/images/fish.png');
-            width: 235px;
-            height: 104px;
-            margin-left: -235px;
-            position: absolute;
-            animation: myfirst 24s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
-        #fish {
-            top: 120px;
-        }
-        #fish2 {
-            top: 260px;
-            animation-delay: 12s;
-            -webkit-animation-delay: 12s;
-        }
-        header {
-            height: 160px;
-            background: url('https://dev-coco.github.io/images/golf.png') repeat-x bottom;
-        }
-        .container {
-            height: 100%;
-            background-color: #98d4f3;
-            overflow: hidden;
-            position: relative;
-        }
-        .content {
-            margin: 0 auto;
-            width: 730px;
-            padding-top: 40px;
-            color: white;
-            position: relative;
-        }
-        button,
-        textarea {
-            width: 730px;
-            border: none;
-            border-radius: 20px;
-            outline: none;
-            padding: 10px;
-            font-size: 1rem;
-            color: #676767;
-            transition: border 0.5s;
-            border: solid 3px #98d4f3;
-            box-sizing: border-box;
-        }
-        ::-webkit-scrollbar {
-            display: none
-        }
-        textarea:focus {
-            border: solid 3px #77bde0;
-        }
-        textarea {
-            height: 100px;
-            height: 400px;
-            resize: none;
-            overflow: auto;
-        }
-        button {
-            background-color: #0aa896;
-            color: white;
-            height: 50px;
-            cursor: pointer;
-            margin: 10px 0 10px 0;
-            font-size: 1.29rem;
-            transition: background-color 0.5s;
-        }
-        button:hover {
-            background-color: #088173;
-        }
-        .i_str,
-        .o_str {
-            display: block;
-            width: 100%;
-        }
-        .row {
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y) * -1);
-            margin-right: calc(var(--bs-gutter-x) * -.5);
-            margin-left: calc(var(--bs-gutter-x) * -.5);
-            margin-bottom: 6px;
-        }
-        .row>* {
-            flex-shrink: 0;
-            width: 100%;
-            max-width: 100%;
-            padding-right: calc(var(--bs-gutter-x) * .5);
-            padding-left: calc(var(--bs-gutter-x) * .5);
-            margin-top: var(--bs-gutter-y);
-        }
-        .side {
-            flex: 1 0 0%;
-        }
-        p {
-            background-color: #0aa896;
-            display: inline;
-            text-align: center;
-            margin: 0px auto;
-            padding: 5px;
-            border-radius: 7px;
-            font-size: 1.2rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>获取 WhatsApp 小组</title>
+  <style>
+    h3 {
+      margin-top: 0;
+      margin-bottom: .5rem;
+      font-weight: 550;
+      line-height: 1.2;
+      font-size: 4.75rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      color: #fff
+    }
+    .header {
+      background: #138c7e;
+    }
+    .header .center {
+      text-align: center
+    }
+    .content {
+      flex: 1 1 auto;
+      padding: 1.25rem;
+      margin-top: 2rem;
+      margin-right: 1.5rem
+    }
+    textarea {
+      border: 1px solid #ced4da;
+      outline: 0;
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      width: 30%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      height: 100%;
+      resize: none;
+      margin: 20px;
+    }
+    .content {
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+      width: 96.5vw;
+    }
+    .middle {
+      font-size: 20px;
+    }
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+    }
+    .btn {
+      display: inline-block;
+      margin: 6px;
+      font-size: inherit;
+      line-height: 1.42;
+      padding: 0.8em 1.6em;
+      font-weight: normal;
+      border-width: 0;
+      border-style: solid;
+      background: transparent;
+      border-radius: 0.2666666667em;
+      cursor: pointer;
+      font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+      user-select: none;
+      vertical-align: bottom;
+      transition: box-shadow 0.2s, transform 0.2s, color 0.2s;
+    }
+    .btn:hover {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    }
+    .btn:active {
+      transform: translateY(3px);
+    }
+    .btn-green {
+      box-shadow: 0 3px 0 0 #367f14, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+      background-color: #52C11F;
+      background-image: linear-gradient(-45deg, #52C11F, #7ccc14);
+      color: white;
+    }
+    .btn-green:hover {
+      box-shadow: 0 3px 0 0 #367f14, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+    }
+    .btn-green:active {
+      box-shadow: 0 0px 0 0 #2d6911, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+      transition: 0s;
+      color: #367f14;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .btn-blue {
+      box-shadow: 0 3px 0 0 #082fa6, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+      background-color: #0B44EF;
+      background-image: linear-gradient(-45deg, #0B44EF, #007dfa);
+      color: #E6EAEF;
+    }
+    .btn-blue:hover {
+      box-shadow: 0 3px 0 0 #082fa6, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+    }
+    .btn-blue:active {
+      box-shadow: 0 0px 0 0 #07288d, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+      transition: 0s;
+      color: #082fa6;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .btn-pink {
+      box-shadow: 0 3px 0 0 #b3004a, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+      background-color: #FF006A;
+      background-image: linear-gradient(-45deg, #FF006A, #ff00aa);
+      color: #E6EAEF;
+    }
+    .btn-pink:hover {
+      box-shadow: 0 3px 0 0 #b3004a, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+    }
+    .btn-pink:active {
+      box-shadow: 0 0px 0 0 #990040, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+      transition: 0s;
+      color: #b3004a;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .btn-orange {
+        box-shadow: 0 3px 0 0 #c65938, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+        background-color: #EE693F;
+        background-image: linear-gradient(-45deg, #EE693F, #F69454);
+        color: #E6EAEF;
+    }
+    .btn-orange:hover {
+        box-shadow: 0 3px 0 0 #EE693F, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+    }
+    .btn-orange:active {
+        box-shadow: 0 0px 0 0 #EE693F, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+        transition: 0s;
+        color: #c65938;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>获取WA小组名</h1>
-    </header>
-    <div class="container">
-        <div class="fish" id="fish"></div>
-        <div class="fish" id="fish2"></div>
-        <div class="content">
-            <div style="text-align: center">
-            <p id="status" style="display: none;">aewfawefaw</p>
-            </div>
-            <button id="group_name">开始</button>
-            <div class="row">
-                <div class="side">
-                    <textarea class="i_str" placeholder="请输入内容，一行一个"></textarea>
-                </div>
-                <div class="side">
-                    <textarea class="o_str" name="message" placeholder="输出内容，不可编辑" readonly></textarea>
-                </div>
-            </div>
-        </div>
+  <div class="header">
+    <h3 class="center">获取 WhatsApp 小组</h3>
+  </div>
+  <div class="content">
+    <textarea id="input"></textarea>
+    <div class="middle">
+      <p id="status" style="display: none"></p>
+      <button class="btn btn-blue" id="getGroupName">获取组名</button>
+      <br><br>
+      <button class="btn btn-orange" id="linkScraper">抓取链接</button>
+      <br><br>
+      <button class="btn btn-green" id="copy">复制</button>
+      <br><br>
+      <button class="btn btn-pink" id="clean">清空</button>
     </div>
-    <script src="options.js"></script>
+    <textarea id="output"></textarea>
+  </div>
+  <script src="options.js"></script>
 </body>
 </html>
