@@ -1,2 +1,2 @@
-# WhatsApp-Find-Group-Tools
-Find WhatsApp group tools. 找WhatsApp小组工具。
+# WhatsApp-Group-Scraper
+WhatsApp group scraper tool. 获取 WhatsApp 小组链接工具。
