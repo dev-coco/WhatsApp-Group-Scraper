@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "获取 WhatsApp 小组",
   "description": "快速列印 WhatsApp 小组链接，获取小组名字和头像。",
-  "author": "dev-coco",
-  "version": "1.1.4",
+  "author": "Raz1ner",
+  "version": "1.1.5",
   "action": {
     "default_icon": "icon.png"
   },
