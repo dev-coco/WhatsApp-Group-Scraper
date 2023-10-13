@@ -52,7 +52,7 @@ async function getGroupName () {
     index++
     status.innerText = `${index}/${input.length}`
     const text = await fetch(url).then(response => response.text())
-    const title = text.match(/(?<=<h3 class="_9vd5 _9scr".*?>).*?(?=<\/h3>)/g)[0].replace(/\n|\t|^&quot;/g, '')
+    const title = text.replace(/\n/g, '').match(/(?<=<h3 class="_9vd5 _9scr".*?>).*?(?=<\/h3>)/g)[0].replace(/\n|\t|^&quot;/g, '')
     let image
     try {
       image = text.match(/(?<=class="_9vx6" src=").*?(?=")/g)[0].replace(/amp;/g, '')
